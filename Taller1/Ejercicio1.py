@@ -2,7 +2,7 @@
  1. Realice un algoritmo que permita invertir los valores de los dígitos de g e intercambiar
  el primer y segundo dígito de f, de tal forma que se muestre el resultado del intercambio
  de los dígitos.
- 2. Además e debe mostrar el resultado de la suma y la multiplicación
+ 2. Además se debe mostrar el resultado de la suma y la multiplicación
  entre los números si f es mayor que g y si g es mayor que f se debe
  mostrar la resta y la división de estos """
 
@@ -10,39 +10,39 @@
 
 
 print("Debe ingresar dos numeros enteros, cada uno de tres dígitos")
-i=True
-k=True
+i = True
+k = True
 """ VALIDACIÓN PARA QUE SEA ENTERO (sin detener el programa) """
-while i==True:
+while i == True:
     g = input("--- Ingrese el primer número (Debe ser de tres dígitos): ")
     try:
         value = int(g)
         gverficacion = list(str(g))
         """ Validación que sea de 3 dígitos """
-        if len(gverficacion) == 3: 
-            i=False
+        if len(gverficacion) == 3:
+            i = False
         elif len(gverficacion) != 3:
             print("No ingresaste un numero de tres dígitos")
     except ValueError:
-        value = 0 
+        value = 0
         print("No ingresaste un entero")
 
-while k==True:
+while k == True:
     f = input("--- Ingrese el segundo número (Debe ser de tres dígitos): ")
     try:
         value = int(f)
         fverficacion = list(str(f))
         """ Validación que sea de 3 dígitos """
         if len(fverficacion) == 3:
-            k=False
+            k = False
         elif len(fverficacion) != 3:
             print("No ingresaste un numero de tres dígitos")
     except ValueError:
-        value = 0 
+        value = 0
         print("No ingresaste un entero")
 """ CONVERTIR LOS INPUTS A ENTEROS """
-f=int(f)
-g=int(g)
+f = int(f)
+g = int(g)
 
 """ CONVERTIR G A LISTA Y APLICAR LAS OPERACIONES """
 g = list(str(g))
@@ -50,7 +50,7 @@ g = list(str(g))
 g1 = list(g)
 g1.reverse()
 g2 = ""
-g3=g2.join(g1)
+g3 = g2.join(g1)
 print("Al invertir el numero queda(primer numero): " + str(g3))
 
 """ CONVERTIR F A LISTA Y APLICAR LAS OPERACIONES """
@@ -59,7 +59,7 @@ f1 = list(f)
 f1.insert(2, f1[0])
 f1.pop(0)
 f2 = ""
-f3=f2.join(f1)
+f3 = f2.join(f1)
 print("Al invertir la primer y segunda cifra queda(segundo numero): " + str(f3))
 
 """ OPERACIONES MATEMATICAS SEGUN F O G ES MAYOR """
