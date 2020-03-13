@@ -74,10 +74,13 @@ if f > g:
           str(int(f[0])*int(f[1])*int(f[2])))
 elif f < g:
     print("resta de las cifras del primer numero: " +
-          str(int(g[0])-int(g[1])-int(g[2])))
+        str(int(g[0])-int(g[1])-int(g[2])))
     print("resta de las cifras del segundo numero: " +
-          str(int(f[0])-int(f[1])-int(f[2])))
-    print("division de las cifras del primer numero: " +
-          str(int(g[0])/int(g[1])/int(g[2])))
-    print("division de las cifras del segundo numero: " +
-          str(int(f[0])/int(f[1])/int(f[2])))
+        str(int(f[0])-int(f[1])-int(f[2])))
+    if g[1] == "0" or g[2] == "0" or f[1] == "0" or f[2] == "0":
+        print("No se puede hacer division por cero.")
+    else:
+        print("division de las cifras del primer numero: " +
+            str(int(g[0])/int(g[1])/int(g[2])))
+        print("division de las cifras del segundo numero: " +
+            str(int(f[0])/int(f[1])/int(f[2])))

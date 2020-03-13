@@ -2,34 +2,27 @@
 y muestre en pantalla su equivalente
 en hexadecimal, octal y decimal."""
 
-""" BINARIO A HEXADECIMAL
- 0000 -> 0
- 0001 -> 1
- 0010 -> 2
- 0011 -> 3
- 0100 -> 4
- 0101 -> 5
- 0110 -> 6
- 0111 -> 7
- 1000 -> 8
- 1001 -> 9
- 1010 -> A
- 1011 -> B
- 1100 -> C
- 1101 -> D
- 1110 -> E
- 1111 -> F
-"""
+""" Binario a hexadecimal """
 print("Calculadora de numero binario a Hexadecimal, octal y decimal")
+while True:
+    binario = input("Ingrese el numero binario (de 8 bits): ")
+    binarioV = True
+    for index in list(binario):
+        if index != "1" and index != "0":
+            binarioV =False
+            break
+    if (len(list(binario)) == 8) and binarioV == True:
+        break
+    else:
+        print("Ingrese un numero de 8 bit válido (0 o 1)")
 
-binario = input("Ingrese el numero binario (de 8 bits): ")
 campo1="nada"
 
 arrayBinario = list(binario)
 arrayBinario.insert(4, " ")
 strBinario = "".join(arrayBinario)
 arrayBinario2 = strBinario.split()
-print(arrayBinario2)
+
 
 if arrayBinario2[0] == "0000":
     campo0 = "0"
@@ -98,3 +91,42 @@ elif arrayBinario2[1] == "1111":
     campo1 = "F"
 
 print("el número en hexadecimal es: " + campo0+campo1)
+
+""" Binario a decimal """
+j=len(list(binario))-1
+decimal=0
+for i in list(binario):
+    n = int(i) * (2**j)
+    decimal += n
+    j -= 1
+print("El decimal es {0}".format(decimal))
+
+""" Binario a Octal """
+
+arrayBinario3 = list(binario)
+arrayBinario3.insert(0, "0")
+arrayBinario3.insert(3, " ")
+arrayBinario3.insert(7, " ")
+strBinario2 = "".join(arrayBinario3)
+arrayBinario4 = strBinario2.split()
+
+octal = ""
+for k in arrayBinario4:
+    if k == "000":
+        campoOctal = "0"
+    elif k == "001":
+        campoOctal = "1"
+    elif k == "010":
+        campoOctal = "2"
+    elif k == "011":
+        campoOctal = "3"
+    elif k == "100":
+        campoOctal = "4"
+    elif k == "101":
+        campoOctal = "5"
+    elif k == "110":
+        campoOctal = "6"
+    elif k == "111":
+        campoOctal = "7"
+    octal += campoOctal
+print("El octal es {0}".format(octal))
