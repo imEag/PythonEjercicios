@@ -2,6 +2,7 @@
  A continuación,se muestra una posible forma de mostrarlo en pantalla. """
 
 """ solución """
+""" por: Emmanuel Arizabaleta Garcés """
 
 """ importar modulo """
 import random
@@ -48,11 +49,13 @@ while True:
     c1str = ''.join(map(str, c1))
     c2str = ''.join(map(str, c2))
     """imprimir avance de la carrera """
-    print("MOMENTO #" + str(k))
-    print(c1str)
-    print(c2str)
-    print(meta)
-    print("\n")
+    def ImprimirCarrera():
+        print("MOMENTO #" + str(k))
+        print(c1str)
+        print(c2str)
+        print(meta)
+        print("\n")
+    ImprimirCarrera()
 
     """ determinar si la carrera finalizó o no y quién ganó """
     if cont1 >= 70 and cont2 < 70:

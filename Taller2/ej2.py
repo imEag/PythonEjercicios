@@ -6,6 +6,8 @@ b.Obtener el ARNm mediante la transcripciónde la secuencia de ADN obtenida en e
 El usuario debe tener la opción de ingresar la secuencia de ADN deseada. """
 
 """ Solución """
+""" por: Emmanuel Arizabaleta Garcés """
+
 
 """ Se imprime una descripción del rpograma y se recoge el dato y se convierte a lowercase"""
 print("Usted ingresará la cadena de ADN, ejemplo: ATCGTGGATAAT y se le mostrará la \ncadena complementaria por medio de replicación y el ARNm mediante transcripción \nEl ARNm se mostrara a partir de la cadena complementaria obtenida.")

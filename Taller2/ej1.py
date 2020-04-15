@@ -13,6 +13,8 @@ b. Según lo visto en clase, optimice el código (use funciones propias de Pytho
 funciones, use diccionarios y/o listas... Lo que considere necesario)."""
 
 """ Solución """
+""" por: Emmanuel Arizabaleta Garcés """
+
 """ a) """ 
 """ Crea lista de numeros que contiene enteros. """
 L = [9, 8, -9, -6, -8, 7, 0, 3, -8] 
