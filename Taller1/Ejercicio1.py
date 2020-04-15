@@ -8,6 +8,7 @@
 
 """ Por: Emmanuel Arizabaleta Garcés """
 
+""" BUG CUANDO SE PONE 0 AL INICIO  """
 
 print("Debe ingresar dos numeros enteros, cada uno de tres dígitos")
 i = True
