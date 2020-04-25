@@ -46,10 +46,11 @@ Para la opción 3 simplemente utilizo el brake para terminar el ciclo.
 
 SOLUCIÓN """
 
-
+""" importar modulos """
 from funciones import Generar_codigo, Diagnostico_LH, Introducir_Num
 print('Bienvenido al sistema de dianóstico de LH')
 
+""" declarar variables (no necesario) """
 pacientes = {}
 cont_sisben = 0
 cont_sura = 0
@@ -58,8 +59,10 @@ cont_medimas = 0
 cont_ipsu = 0
 cont_saludt = 0
 
+""" ciclo para el menú principal """
 while True:
 
+    """ mas variables """
     paciente = []
     menu_op = ''
     bandera_genero = False
@@ -72,31 +75,38 @@ while True:
 
     print('\nMenú\n1 - Ingresar un paciente\n2 - Informe de afiliación a EPS\n3 - Salir')
     menu_op = input('Ingrese una opción: ')
-
+    """ opción 1 """
     if menu_op == '1':
+
+        """ recoger datos del paciente """
         print('Ingrese los siguientes datos')
 
         paciente.append(input('Nombre: '))
+        """ uso de funcion para verificar los datos ingresados """
         paciente.append(Introducir_Num('Identificación', 'int'))
         pac_edad = Introducir_Num('Edad', 'int')
         paciente.append(str(pac_edad))
 
+        """ Ingresar género. Hecho con ciclos para verficar que se ingrese un valor correcto"""
         while bandera_genero == False:
             pac_genero = input('Género:\n1 - Masculino\n2 - Femenino\n : ')
 
             if pac_genero == '2':
                 paciente.append('Femenino')
 
+                """ Ingresar menopausia. Hecho con ciclos para verficar que se ingrese un valor correcto"""
                 while True:
                     pac_menopausia = input('Menopausia:\n1 - Si\n2 - No\n : ')
 
                     if pac_menopausia == '1':
                         paciente.append('Si')
+                        """ bandera para cerrar el ciclo de afuera"""
                         bandera_genero = True
                         break
 
                     elif pac_menopausia == '2':
                         paciente.append('No')
+                        """ bandera para cerrar el ciclo de afuera"""
                         bandera_genero = True
                         break
 
@@ -110,11 +120,15 @@ while True:
             else:
                 print('Ingrese una opción válida')
 
+        """ recibir LH """
         pac_lh = Introducir_Num('LH en UI/L', 'float')
         paciente.append(str(pac_lh))
+
+        """ calcular diagnóstico """
         dx_lh = Diagnostico_LH(pac_genero, pac_edad, pac_menopausia, pac_lh)
         paciente.append(dx_lh)
 
+        """ Generar código, incrementar contador y añadir valores dependiendo de la eps"""
         while True:
             pac_eps = input(
                 'EPS:\n1 - Sisben\n2 - Sura\n3 - Coomeva\n4 - Medimas\n5 - IPS Universitaria\n6 - Salud Total\n : ')
@@ -158,23 +172,34 @@ while True:
             else:
                 print('Ingrese una opción válida')
 
+        """ mostrar codigo y diagnóstico después de ingresar datos del paciente """
         print('Código de paciente ingresado: '+paciente[8])
         print('Diagnóstico del paciente: ' + paciente[6])
-
+        
+        """ añadir paciente al diccionario """
         pacientes.update({str(paciente[1]): paciente})
 
+        """ opción 2, buscar un paciente """
     elif menu_op == '2':
+        """ verificar numéricos y existencia del paciente en la "BD" """
         while True:
             try:
+                """ buscar paciente """
                 busqueda = str(Introducir_Num(
                     'Ingrese el número de documento para buscar un paciente', 'int'))
                 resultado = pacientes[busqueda]
                 break
             except KeyError:
+                """ si el paciente no existe... """
                 print('El paciente con id ' + busqueda + ' no está en la BD')
+        """ Imprimir datos del paciente """
         print('\n--- RESULTADO BUSQUEDA---')
+        
         print('Nombre: {0}\nIdentificación: {1}\nEdad: {2}\nGénero: {3}\nMenopausia: {4}\nLH: {5}\nDiagnóstico: {6}\nEPS: {7}\nCódigo: {8}'.format(resultado[0], resultado[1], resultado[2], resultado[3], resultado[4], resultado[5], resultado[6], resultado[7], resultado[8]))
+        """ opcion 3. salir """
     elif menu_op == '3':
+
+        """ salir usando un break """
         print('Cerrando programa.')
         break
     else:
