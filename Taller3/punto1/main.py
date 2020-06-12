@@ -1,39 +1,5 @@
-""" from db_connect import get_user_information, change_password
- """
-#--------------------------
-
-import mysql.connector
-
-SERVER = 'localhost'
-USER = 'root'
-PASSWORD = ''
-DB = 'taller3ej1'
-cnx = mysql.connector.connect(
-    user=USER, password=PASSWORD, host=SERVER, database=DB)
-
-
-def get_user_information(user):
-        connection = cnx.cursor()
-        sql = "SELECT user.user_name, user.password FROM user WHERE user.user_name='%s'" % user
-        connection.execute(sql)
-        result = connection.fetchall()
-
-        if result == []:
-            return ['']
-        else:
-            return result[0]
-        cnx.commit()
-        cnx.close()
-
-def change_password(user_name, new_password):
-    connection = cnx.cursor()
-    sql = "UPDATE user SET password=" + new_password + \
-        " WHERE user_name='%s'" % user_name
-    connection.execute(sql)
-    cnx.commit()
-    cnx.close()
-
-
+from db_connect import get_user_information, change_password
+ 
 #--------------------------
 
 def loged_menu(user):
