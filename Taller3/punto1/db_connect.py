@@ -32,7 +32,7 @@ def get_user_information(user):
 def change_password(user_name, new_password):
     """ Cambia la contraseña de un usuario. Parámetros: Nombre de usuario (Str), nueva password (string). No retorna"""
     try:
-        #Xonexión
+        #Conexión
         cnx = mysql.connector.connect(
         user=USER, password=PASSWORD, host=SERVER, database=DB)
         connection = cnx.cursor()
